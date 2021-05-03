@@ -4,6 +4,7 @@
     <!-- Metadata -->
     <head>
         <title>Home | Jarod Graygo</title>
+        <link href="src/css/base.css" type="text/css" rel="stylesheet">
         <link href="src/css/index.css" type="text/css" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico">
     </head>
@@ -44,16 +45,31 @@
                 </p>
             </div>
             <div id="source">
-                    <p>Begin by right-clicking anywhere on the page and you'll see a menu like the one shown here.</p>
-                    <img src="src/img/right-click-menu.png"/>
-                    <p>Click on the button that says "View page source" and you'll get a page
-                        that looks like this:</p>
-                    <img src="src/img/example-source.png"
-                        width="444"
-                        height="500"/>
-                    <p>Your view may be different depending on the browser you are using, but congratulations!
-                        You can now take a look at all the interesting elements used to build this website!</p>
+                <div class="flex-display left">
+                    <div class="orange-box">
+                        <p>Begin by right-clicking anywhere on the page and you'll see a menu like the one shown here.</p>
+                    </div>
+                    <div class="grey-box small">
+                        <img src="src/img/right-click-menu.png"/>
+                    </div>
+                </div>
+                <div class="flex-display right">
+                    <div class="orange-box center">
+                        <p>Simply click on the button that says "view page source" and you'll be brought to the 
+                            source code page.</p>
+                    </div>
+                    <div class="grey-box large">
+                        <img src="src/img/example-source.png"
+                            width="520"
+                            height="500"/>
+                        <p>Your view may be different depending on the browser you are using, but congratulations!
+                            You can now take a look at all the interesting elements used to build this website!</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <footer>
+            <p>What are you doing down here?</p>
+        </footer>
     </body>
 </html>
