@@ -58,7 +58,7 @@ img {
 #description p {
     text-align: center;
     margin: 10px auto 0;
-    width: 30em;
+    width: 40em;
 }
 
 .orange-box {
@@ -95,8 +95,12 @@ img {
 }
 
 .large {
-    width: 580px;
+    width: 456px;
     min-height: 328px;
+}
+
+.large p {
+    height: 30px;
 }
 
 .center {
@@ -119,7 +123,6 @@ img {
     font-size: small;
 }
 
-
 .flex-display {
     display: flex;
     flex-wrap: wrap;
@@ -130,4 +133,14 @@ img {
     margin-right: 150px;
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.keep-near {
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.keep-near-2 {
+    margin-left: 15vw;
+    margin-right: 17vw;
 }
