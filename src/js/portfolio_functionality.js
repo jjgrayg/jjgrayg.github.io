@@ -1,29 +1,20 @@
-var accordianItems = [];
-var activeItem;
-var done = false;
-
-let observerConfig = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0
-};
-
-function observerFn(entries, observer) {
-    
-}
-
-let observer = new IntersectionObserver(observerFn, observerConfig);
-
 window.onload = function() {
-    accordianToAnimate = document.getElementById("accordian").querySelectorAll(".accordian-item");
+    var id = null;
+    var elem = document.getElementById("banner-text");
+    var opacity = 0;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+        if (opacity == 1) {
+        clearInterval(id);
+        } else {
+        opacity += .01;
+        elem.style.opacity = opacity;
+        }
+    }
+    
     accordianItems = Array.from(document.getElementById("accordian").querySelectorAll(".accordian-item"));
     activeItem = document.getElementById("1");
-    console.log(accordianItems)
-
-    //Animations!
-    for (var i = 0; i < accordianItems.length; ++i) {
-        observer.observe(accordianItems[i])
-    }
 
     accordianItems.forEach( function(item) {
         item.addEventListener('click', function() {
@@ -51,34 +42,7 @@ window.onload = function() {
                 var text = this.getElementsByClassName('text');
                 text[0].classList.add('not-viewed');
                 activeItem = undefined;
-                console.log(this.classList)
             }
         })
     })
-
-    // if (!done) {
-    //     var id = null;
-    //     var startOpacity = 0;
-    //     clearInterval(id);
-    //     var opacity = startOpacity;
-    //     id = setInterval(frame, 500);
-    //     function frame() {
-    //         for(var i = 0; i < accordianToAnimate.length; ++i) {
-    //             var elem = accordianToAnimate[i]
-    //             elem.style.opacity = startOpacity;
-    //             console.log(i);
-    //             while (opacity < 1){
-    //                 opacity += .01;
-    //                 elem.style.opacity = opacity;
-    //                 console.log(opacity)
-    //             }
-    //             if (opacity === 1) {
-    //                 clearInterval(id);
-    //             }
-    //         }
-    //         opacity = startOpacity;
-    //         startOpacity -= 5;
-    //     }
-    // }
-    // done = true;
 }

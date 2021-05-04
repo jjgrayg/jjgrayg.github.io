@@ -7,6 +7,7 @@
         <link href="src/css/base.css" type="text/css" rel="stylesheet">
         <link href="src/css/index.css" type="text/css" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico">
+        <script src="src/js/index.js"></script>
     </head>
 
     <!-- Displayed Portion -->
@@ -31,10 +32,12 @@
         <!-- The Banner -->
         <div id="content">
             <div id="banner">
-                <h1>WELCOME</h1>
-                <p>I am Jarod Graygo, current student at Kent State University majoring in Computer Science.
-                    Take a look at all the cool work I've done by clicking on the button below.</p><br><br><br>
-                <a class="shortcut_button" href="./portfolio.html">Projects</a>
+                <div id="banner-text">
+                    <h1>WELCOME</h1>
+                    <p>I am Jarod Graygo, current student at Kent State University majoring in Computer Science.
+                        Take a look at all the cool work I've done by clicking on the button below.</p><br><br><br>
+                    <a class="shortcut_button" href="./portfolio.html">Projects</a>
+                </div>
             </div>
 
             <!-- Description of Current Project -->
@@ -47,19 +50,19 @@
                 </div>
                 <div id="source">
                     <div class="flex-display left keep-near">
-                        <div class="orange-box">
+                        <div id="right-click" class="orange-box">
                             <p>Begin by right-clicking anywhere on the page and you'll see a menu like the one shown here.</p>
                         </div>
-                        <div class="grey-box small">
+                        <div id="right-click-img" class="grey-box small">
                             <img src="src/img/right-click-menu.png"/>
                         </div>
                     </div>
                     <div class="flex-display right keep-near-2">
-                        <div class="orange-box center">
+                        <div id="source-page" class="orange-box center">
                             <p>Simply click on the button that says "view page source" and you'll be brought to the 
                                 source code page.</p>
                         </div>
-                        <div class="grey-box large">
+                        <div id="source-page-img" class="grey-box large">
                             <img src="src/img/example-source.png"
                                 width="416"
                                 height="400"/>
