@@ -1,34 +1,130 @@
-/* Latest Project in each Language*/
-#latest {
+/*Header*/
+.header {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
     color: white;
-    background-color: rgb(34, 34, 34);
-    padding-left: 10px;
-    margin: 10px 150px;
-    font-family: Roboto, monospace, sans-serif;
-    border: rgb(51, 51, 51);
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 15px;
-    box-shadow: 0px 0px 5px 5px rgb(70, 85, 87);
+    padding: 25px;
 }
 
-/* Links to Github */
-.links {
-    color:rgb(70, 85, 87);
-    font-family: Roboto, monospace, sans-serif;
+.header h1 {
+    font-size: 3em;
+    line-height: .75em;
+}
+
+/*Accordian*/
+#accordian {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    width: 50vw;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.accordian-item {
+    background-color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.accordian-item:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.not-viewed {
+    display: none;
+}
+
+.horizontal-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vertical-flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.accordian-item svg {
+    padding-right: 25px;
+    fill: rgb(133, 142, 153);
+}
+
+.accordian-link-text {
+    padding-left: 25px;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(133, 142, 153);
+    font-weight: 700;
+}
+
+/*Define style for currently viewed*/
+.currently-viewed {
+    background-color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.currently-viewed:hover {
+    background-color: white;
+}
+
+.currently-viewed svg {
+    padding-right: 25px;
+    fill: rgb(86, 91, 97);
+}
+
+.currently-viewed .accordian-link-text {
+    color: rgb(86, 91, 97);
+}
+
+/*Inner Accordian Text*/
+.description {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    padding-left: 45px;
+    padding-top: 50px;
+    padding-right: 45px;
+    padding-bottom: 35px;
+}
+
+code {
     text-align: left;
-}
-
-p.codeblock {
-    margin-right: 10px;
-    background-color: rgb(12, 12, 12);
-    border: rgb(51, 51, 51);
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
     white-space: pre-wrap;
 }
 
-#summary {
-    margin-bottom:8px;
+/*GitHub Button*/
+.github-button {
+    display: inline-block;
+    color: rgb(224, 229, 235);
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    background-color: rgb(41,45,51);
+    margin-left: 50px;
+    margin-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: .01px;
+    padding-bottom: .01px;
+    width: 105px;
+    border-radius: 15px;
 }
