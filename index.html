@@ -8,6 +8,7 @@
         <link href="src/css/index.css" type="text/css" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico">
         <script src="src/js/index.js"></script>
+        <script src="src/js/mobile_navbar.js" defer></script>
     </head>
 
     <!-- Displayed Portion -->
@@ -16,21 +17,39 @@
         <!-- Top Navbar -->
         <nav>
             <ul>
-              <li><a href="./index.html" class="logo"><img src="src/img/logo.png" width="50rem" height="50rem"></a>
-              </li>
-              <li><a href="./index.html" class="active">Home</a>
-              </li>
-              <li><a href="./contact.html">Contact</a>
-              </li>
-              <li><a href="./portfolio.html">Portfolio</a>
-              </li>
-              <li><a href="./about.html">About</a>
-              </li>
+                <li><a href="./index.html" class="logo"><img src="src/img/logo.png" width="50rem" height="50rem"></a>
+                </li>
+                <li><a href="javascript:void(0);" class="icon" id="burger-menu" onclick="openMenu()">
+                    <svg viewBox="0 0 100 100" width="40" height="40" preserveAspectRatio="xMaxYMax meet">
+                        <rect width="100" height="20" rx="5"></rect>
+                        <rect y="30" width="100" height="20" rx="5"></rect>
+                        <rect y="60" width="100" height="20" rx="5"></rect>
+                    </svg>
+                </a></li>
+
+                <!-- REGULAR LINKS -->
+                <li><a href="./index.html" class="active">Home</a>
+                </li>
+                <li><a href="./contact.html">Contact</a>
+                </li>
+                <li><a href="./portfolio.html">Portfolio</a>
+                </li>
+                <li><a href="./about.html">About</a>
+                </li>
             </ul>
+                
+            <!-- MOBILE LINKS -->
+            <div id="link-menu" class="overlay">
+                <a href="./index.html" class="active">Home</a>
+                <a href="./contact.html">Contact</a>
+                <a href="./portfolio.html">Portfolio</a>
+                <a href="./about.html">About</a>
+                <img src="src/img/logo.png" width="500rem" height="500rem" class="overlay-bg">
+            </div>
         </nav>
 
         <!-- The Banner -->
-        <div id="content">
+        <div id="content" href="javascript:void(0)" onclick="closeMenu()">
             <div id="banner">
                 <div id="banner-text">
                     <h1>WELCOME</h1>

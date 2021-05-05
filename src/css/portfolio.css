@@ -78,6 +78,7 @@
     justify-content: space-between;
     border-radius: 8px;
     flex-direction: column;
+    max-width: 100%;
 }
 
 .currently-viewed:hover {
@@ -119,11 +120,26 @@
     padding-bottom: 5px;
 }
 
-code {
+/* code {
     text-align: left;
     padding-left: 45px;
     padding-right: 45px;
-    white-space: pre-wrap;
+    overflow-x: scroll;
+    display: inline-block;
+    max-width: 90%;
+} */
+
+pre code {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: block;
+    line-height: 1.6em;
+    font-size: 11px;
+    white-space: pre; 
+    word-wrap: normal;
+    max-width: 40vw;
+    margin: 0 auto;
+    padding-right: 25px;
 }
 
 /*GitHub Button*/
@@ -143,4 +159,18 @@ code {
     padding-bottom: .01px;
     width: 105px;
     border-radius: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+    #accordian {
+        width: 90vw;
+    }
+
+    .accordian-item svg {
+        margin-top: -2px;
+    }
+
+    pre code {
+        max-width: 70vw;
+    }
 }

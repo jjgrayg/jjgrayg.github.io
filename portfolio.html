@@ -8,6 +8,7 @@
         <link href="src/css/portfolio.css" type="text/css" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico">
         <script src="src/js/portfolio_functionality.js"></script>
+        <script src="src/js/mobile_navbar.js" defer></script>
     </head>
 
     <!-- Displayed Portion -->
@@ -16,20 +17,38 @@
         <!-- Top Navbar -->
         <nav>
             <ul>
-              <li><a href="./index.html" class="logo"><img src="src/img/logo.png" width="50rem" height="50rem"></a>
-              </li>
-              <li><a href="./index.html">Home</a>
-              </li>
-              <li><a href="./contact.html">Contact</a>
-              </li>
-              <li><a href="./portfolio.html" class="active">Portfolio</a>
-              </li>
-              <li><a href="./about.html">About</a>
-              </li>
+                <li><a href="./index.html" class="logo"><img src="src/img/logo.png" width="50rem" height="50rem"></a>
+                </li>
+                <li><a href="javascript:void(0);" class="icon" id="burger-menu" onclick="openMenu()">
+                    <svg viewBox="0 0 100 100" width="40" height="40" preserveAspectRatio="xMaxYMax meet">
+                        <rect width="100" height="20" rx="5"></rect>
+                        <rect y="30" width="100" height="20" rx="5"></rect>
+                        <rect y="60" width="100" height="20" rx="5"></rect>
+                    </svg>
+                </a></li>
+
+                <!-- REGULAR LINKS -->
+                <li><a href="./index.html">Home</a>
+                </li>
+                <li><a href="./contact.html">Contact</a>
+                </li>
+                <li><a href="./portfolio.html" class="active">Portfolio</a>
+                </li>
+                <li><a href="./about.html">About</a>
+                </li>
             </ul>
+                
+            <!-- MOBILE LINKS -->
+            <div id="link-menu" class="overlay">
+                <a href="./index.html">Home</a>
+                <a href="./contact.html">Contact</a>
+                <a href="./portfolio.html" class="active">Portfolio</a>
+                <a href="./about.html">About</a>
+                <img src="src/img/logo.png" width="500rem" height="500rem" class="overlay-bg">
+            </div>
         </nav>
 
-        <div id="content">
+        <div id="content" href="javascript:void(0)" onclick="closeMenu()">
             <div id="banner">
                 <div id="banner-text">
                     <h1>PORTFOLIO</h1>
@@ -54,37 +73,39 @@
                             <p class="description">The first true JavaScript app I ever wrote. Needs some work,
                                 and I intend to perfect it, but for now serves as a basic document editor that
                                 utilizes Node.js, React.js, and Quill to work.</p>
-                            <pre>
-                                <code>
-        import React from "react"
-        import { useCallback } from "react"
-        import Quill from "quill"
-        import "quill/dist/quill.snow.css"
-        const TOOLBAR_OPTIONS = [
-            [{ header: [1, 2, 3, 4, 5, 6, false]}],
-            [{ font: [] }],
-            [{ list: "ordered"}, { list: "bullet" }],
-            ["bold", "italic", "underline"],
-            [{ color: [] }, { background: [] }],
-            [{ script: "sub" }, { script: "super" }],
-            [{ align: [] }],
-            ["image", "blockquote", "code-block"],
-            ["clean"],
-        ]
-        export default function TextEditor() {
-            const wrapperRef = useCallback((wrapper) => {
-                if (wrapper == null) return
-                wrapper.innerHTML = "";
-                const editor = document.createElement('div');
-                wrapper.append(editor);
-                new Quill(editor, {theme: "snow", modules: {
-                    toolbar: TOOLBAR_OPTIONS
-                }})
-            }, [])
-            return 
-        } 
-                                </code>
-                            </pre>
+                            <div class="code-block">
+                                <pre>
+                                    <code>
+import React from "react"
+import { useCallback } from "react"
+import Quill from "quill"
+import "quill/dist/quill.snow.css"
+const TOOLBAR_OPTIONS = [
+    [{ header: [1, 2, 3, 4, 5, 6, false]}],
+    [{ font: [] }],
+    [{ list: "ordered"}, { list: "bullet" }],
+    ["bold", "italic", "underline"],
+    [{ color: [] }, { background: [] }],
+    [{ script: "sub" }, { script: "super" }],
+    [{ align: [] }],
+    ["image", "blockquote", "code-block"],
+    ["clean"],
+]
+export default function TextEditor() {
+    const wrapperRef = useCallback((wrapper) => {
+        if (wrapper == null) return
+        wrapper.innerHTML = "";
+        const editor = document.createElement('div');
+        wrapper.append(editor);
+        new Quill(editor, {theme: "snow", modules: {
+            toolbar: TOOLBAR_OPTIONS
+        }})
+    }, [])
+    return 
+} 
+                                    </code>
+                                </pre>
+                            </div>
                             <a class="github-button" href="https://github.com/jjgrayg/Online_Doc_Editor" target="_blank"><p>GitHub Link</p></a>
                         </div>
                     </div>
@@ -102,94 +123,94 @@
                                 is a simple space-themed game made using the Pygame library in Python.</p>
                             <pre>
                                 <code>
-        # The game
-        def main():
-            # Begin the music!
-            pygame.mixer.music.load(os.path.join("assets", "space_game_music.wav"))
-            pygame.mixer.music.play(-1)
-            run = True
-            FPS = 60
-            level = 0
-            lives = 5
-            # Create fonts
-            main_font = pygame.font.SysFont("comicsans", 50)
-            powerup_font = pygame.font.SysFont("comicsans", 40)
-            lost_font = pygame.font.SysFont("comicsans", 60)
-            # List of enemies
-            enemies = []
-            wave_length = 0
-            # Relevant velocities
-            enemy_vel = 1
-            player_vel = 5
-            laser_vel = 5
-            # List of powerups
-            powerups = []
-            num_powerups = 0
-            fast_timer = 0
-            rapid_timer = 0
-            clock = pygame.time.Clock()
-            # Create player
-            player = Player(300, 630)
-            lost = False
-            lost_count = 0
+# The game
+def main():
+    # Begin the music!
+    pygame.mixer.music.load(os.path.join("assets", "space_game_music.wav"))
+    pygame.mixer.music.play(-1)
+    run = True
+    FPS = 60
+    level = 0
+    lives = 5
+    # Create fonts
+    main_font = pygame.font.SysFont("comicsans", 50)
+    powerup_font = pygame.font.SysFont("comicsans", 40)
+    lost_font = pygame.font.SysFont("comicsans", 60)
+    # List of enemies
+    enemies = []
+    wave_length = 0
+    # Relevant velocities
+    enemy_vel = 1
+    player_vel = 5
+    laser_vel = 5
+    # List of powerups
+    powerups = []
+    num_powerups = 0
+    fast_timer = 0
+    rapid_timer = 0
+    clock = pygame.time.Clock()
+    # Create player
+    player = Player(300, 630)
+    lost = False
+    lost_count = 0
+    
+    paused = False
+    pause_delay = 0
+    nuke_deployed = False
+    nuke_deployed_notification = 0
+    nuke_enemies = False
+    def redraw_window():
+        # Draw BG
+        WIN.blit(BG, (0,0))
+        # Draw text
+        lives_label = main_font.render(f"Lives: {lives}", 1, (255, 255, 255))
+        level_label = main_font.render(f"Level: {level}", 1, (255, 255, 255))
+        WIN.blit(lives_label, (10, 10))
+        WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
+        # Draw powerups
+        for powerup in powerups:
+            powerup.draw(WIN)
+        # Draw player
+        player.draw(WIN)
+        # If the player lost put a 
+        if lost == True:
+            lost_label = lost_font.render("You Lost!", 1, (255, 255, 255))
+            WIN.blit(lost_label, (WIDTH/2 - lost_label.get_width()/2, 350))
+            pygame.mixer.music.pause()
+        # If paused post a pause screen
+        if paused == True:
+            pause_label = lost_font.render("Paused. Press enter to continue...", 1, (255, 255, 255))
+            WIN.blit(pause_label, (WIDTH/2 - pause_label.get_width()/2, 350))
+        # Notfiy player if they have nuke ready
+        if player.nuke == True:
+            nuke_label = main_font.render("NUKE READY", 1, (255,255,255))
+            WIN.blit(nuke_label, (WIDTH/2 - nuke_label.get_width()/2, 10))
+        # Notify of deployed nuke
+        if nuke_deployed == True:
+            nuke_deployed_label = main_font.render("NUKE DEPLOYED!", 1, (255,255,255))
+            WIN.blit(nuke_deployed_label, (WIDTH/2 - nuke_deployed_label.get_width()/2, 10))
+        # Powerup sidebar
+        if player.shield:
+            shield_label = powerup_font.render("Shield", 1, (255, 255, 255))
+        else:
+            shield_label = powerup_font.render("Shield", 1, (100, 100, 100))
             
-            paused = False
-            pause_delay = 0
-            nuke_deployed = False
-            nuke_deployed_notification = 0
-            nuke_enemies = False
-            def redraw_window():
-                # Draw BG
-                WIN.blit(BG, (0,0))
-                # Draw text
-                lives_label = main_font.render(f"Lives: {lives}", 1, (255, 255, 255))
-                level_label = main_font.render(f"Level: {level}", 1, (255, 255, 255))
-                WIN.blit(lives_label, (10, 10))
-                WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
-                # Draw powerups
-                for powerup in powerups:
-                    powerup.draw(WIN)
-                # Draw player
-                player.draw(WIN)
-                # If the player lost put a 
-                if lost == True:
-                    lost_label = lost_font.render("You Lost!", 1, (255, 255, 255))
-                    WIN.blit(lost_label, (WIDTH/2 - lost_label.get_width()/2, 350))
-                    pygame.mixer.music.pause()
-                # If paused post a pause screen
-                if paused == True:
-                    pause_label = lost_font.render("Paused. Press enter to continue...", 1, (255, 255, 255))
-                    WIN.blit(pause_label, (WIDTH/2 - pause_label.get_width()/2, 350))
-                # Notfiy player if they have nuke ready
-                if player.nuke == True:
-                    nuke_label = main_font.render("NUKE READY", 1, (255,255,255))
-                    WIN.blit(nuke_label, (WIDTH/2 - nuke_label.get_width()/2, 10))
-                # Notify of deployed nuke
-                if nuke_deployed == True:
-                    nuke_deployed_label = main_font.render("NUKE DEPLOYED!", 1, (255,255,255))
-                    WIN.blit(nuke_deployed_label, (WIDTH/2 - nuke_deployed_label.get_width()/2, 10))
-                # Powerup sidebar
-                if player.shield:
-                    shield_label = powerup_font.render("Shield", 1, (255, 255, 255))
-                else:
-                    shield_label = powerup_font.render("Shield", 1, (100, 100, 100))
-                    
-                if player.rapid:
-                    rapid_label = powerup_font.render("Rapid Fire", 1, (255, 255, 255))
-                else:
-                    rapid_label = powerup_font.render("Rapid Fire", 1, (100, 100, 100))
-                    
-                if player.fast:
-                    fast_label = powerup_font.render("Fast Movement", 1, (255, 255, 255))
-                else:
-                    fast_label = powerup_font.render("Fast Movement", 1, (100, 100, 100))
-                WIN.blit(shield_label, (10, 50))
-                WIN.blit(rapid_label, (10, 75))
-                WIN.blit(fast_label, (10, 100))
-                # Draw enemies
-                for enemy in enemies:
-                    enemy.draw(WIN)
-                pygame.display.update()
+        if player.rapid:
+            rapid_label = powerup_font.render("Rapid Fire", 1, (255, 255, 255))
+        else:
+            rapid_label = powerup_font.render("Rapid Fire", 1, (100, 100, 100))
+            
+        if player.fast:
+            fast_label = powerup_font.render("Fast Movement", 1, (255, 255, 255))
+        else:
+            fast_label = powerup_font.render("Fast Movement", 1, (100, 100, 100))
+        WIN.blit(shield_label, (10, 50))
+        WIN.blit(rapid_label, (10, 75))
+        WIN.blit(fast_label, (10, 100))
+        # Draw enemies
+        for enemy in enemies:
+            enemy.draw(WIN)
+        pygame.display.update()
                                 </code>
                             </pre>
                             <a class="github-button" href="https://github.com/jjgrayg/spaceGame" target="_blank"><p>GitHub Link</p></a>
@@ -210,80 +231,80 @@
                                 and allows you to bet against a bot in a game of poker.</p>
                             <pre>
                                 <code>
-        void player::evaluate() {
-            bool twoPair = false;
-            bool onePair = false;
-            bool ofAKind3 = false;
-            bool ofAKind4 = false;
-            bool straight = false;
-            bool flush = false;
-            bool royal = false;
-            // Sort from lowest to highest
-            std::vector sortedValues;
-            for (int i = 0; i < HAND_SIZE; i++) sortedValues.push_back(hand[i].value);
-            std::sort(sortedValues.begin(), sortedValues.begin() + 5);
-            // Check for a straight
-            int straightCount = 0;
-            for (int i = 0; i < HAND_SIZE - 1; i++) {
-                if (sortedValues[i] == sortedValues[i + 1] - 1) {
-                    straightCount++;
-                }
+void player::evaluate() {
+    bool twoPair = false;
+    bool onePair = false;
+    bool ofAKind3 = false;
+    bool ofAKind4 = false;
+    bool straight = false;
+    bool flush = false;
+    bool royal = false;
+    // Sort from lowest to highest
+    std::vector sortedValues;
+    for (int i = 0; i < HAND_SIZE; i++) sortedValues.push_back(hand[i].value);
+    std::sort(sortedValues.begin(), sortedValues.begin() + 5);
+    // Check for a straight
+    int straightCount = 0;
+    for (int i = 0; i < HAND_SIZE - 1; i++) {
+        if (sortedValues[i] == sortedValues[i + 1] - 1) {
+            straightCount++;
+        }
+    }
+    if (straightCount == 4) straight = true;
+    // Check for a royal
+    if (sortedValues[0] == 10 && straight) royal = true;
+    // Check for flush
+    int suitCount = 0;
+    for (int i = 0; i < HAND_SIZE - 1; i++) {
+        if (hand[i].suit == hand[i + 1].suit) suitCount += 1;
+    }
+    if (suitCount == 4) flush = true;
+    // Check for "-of-a-kind" hand
+    int faceMatches[HAND_SIZE];
+    for (int i = 0; i < HAND_SIZE; i++) faceMatches[i] = 0;
+    for (int i = 0; i < HAND_SIZE; i++) {
+        for (int j = i; j < HAND_SIZE; j++) {
+            if (hand[i].face == hand[j].face) {
+                faceMatches[i] = faceMatches[i] + 1;
             }
-            if (straightCount == 4) straight = true;
-            // Check for a royal
-            if (sortedValues[0] == 10 && straight) royal = true;
-            // Check for flush
-            int suitCount = 0;
-            for (int i = 0; i < HAND_SIZE - 1; i++) {
-                if (hand[i].suit == hand[i + 1].suit) suitCount += 1;
-            }
-            if (suitCount == 4) flush = true;
-            // Check for "-of-a-kind" hand
-            int faceMatches[HAND_SIZE];
-            for (int i = 0; i < HAND_SIZE; i++) faceMatches[i] = 0;
-            for (int i = 0; i < HAND_SIZE; i++) {
-                for (int j = i; j < HAND_SIZE; j++) {
-                    if (hand[i].face == hand[j].face) {
-                        faceMatches[i] = faceMatches[i] + 1;
-                    }
-                }
-            }
-            // Check for full house
-            for (int i = 0; i < HAND_SIZE; i++) {
-                if (faceMatches[i] == 3) ofAKind3 = true;
-            }
-            // Count the number of pairs
-            int pairCount = 0;
-            for (int i = 0; i < HAND_SIZE; i++) {
-                if (faceMatches[i] == 2) pairCount++;
-            }
-            maxInfo maxInfo = max(faceMatches, HAND_SIZE);
-            assignHighest();
-            if (pairCount == 2) twoPair = true;
-            else if (maxInfo.maxVal == 2) onePair = true;
-            else if (maxInfo.maxVal == 3) ofAKind3 = true;
-            else if (maxInfo.maxVal == 4) ofAKind4 = true;
-            if (straight && flush && royal) { score = (36608398 * highVal); handRank = "Royal Flush"; }
-            else if (straight && flush) { score = (5229771 * highVal); handRank = "Straight Flush"; }
-            else if (ofAKind4) { score = (747111 * hand[maxInfo.maxIndex].value); handRank = "4 of a Kind"; }
-            else if (twoPair && ofAKind3) { score = (106730 * highVal); handRank = "Full House"; }
-            else if (flush) { score = (15247 * highVal); handRank = "Flush"; }
-            else if (straight) { score = (2178 * highVal); handRank = "Straight"; }
-            else if (ofAKind3) { score = (311 * hand[maxInfo.maxIndex].value); handRank = "3 of a Kind"; }
-            else if (twoPair) {
-                int temp = 0;
-                for (int i = 0; i < HAND_SIZE; i++) {
-                    if (faceMatches[i] == 2) temp += hand[i].value;
-                }
-                score = (23 * temp); 
-                handRank = "Two Pair";
-            }
-            else if (onePair) { score = (8 * hand[maxInfo.maxIndex].value); handRank = "One Pair"; }
-            else {
-                score = highVal;
-                handRank = "High Card";
-            }
-        } 
+        }
+    }
+    // Check for full house
+    for (int i = 0; i < HAND_SIZE; i++) {
+        if (faceMatches[i] == 3) ofAKind3 = true;
+    }
+    // Count the number of pairs
+    int pairCount = 0;
+    for (int i = 0; i < HAND_SIZE; i++) {
+        if (faceMatches[i] == 2) pairCount++;
+    }
+    maxInfo maxInfo = max(faceMatches, HAND_SIZE);
+    assignHighest();
+    if (pairCount == 2) twoPair = true;
+    else if (maxInfo.maxVal == 2) onePair = true;
+    else if (maxInfo.maxVal == 3) ofAKind3 = true;
+    else if (maxInfo.maxVal == 4) ofAKind4 = true;
+    if (straight && flush && royal) { score = (36608398 * highVal); handRank = "Royal Flush"; }
+    else if (straight && flush) { score = (5229771 * highVal); handRank = "Straight Flush"; }
+    else if (ofAKind4) { score = (747111 * hand[maxInfo.maxIndex].value); handRank = "4 of a Kind"; }
+    else if (twoPair && ofAKind3) { score = (106730 * highVal); handRank = "Full House"; }
+    else if (flush) { score = (15247 * highVal); handRank = "Flush"; }
+    else if (straight) { score = (2178 * highVal); handRank = "Straight"; }
+    else if (ofAKind3) { score = (311 * hand[maxInfo.maxIndex].value); handRank = "3 of a Kind"; }
+    else if (twoPair) {
+        int temp = 0;
+        for (int i = 0; i < HAND_SIZE; i++) {
+            if (faceMatches[i] == 2) temp += hand[i].value;
+        }
+        score = (23 * temp); 
+        handRank = "Two Pair";
+    }
+    else if (onePair) { score = (8 * hand[maxInfo.maxIndex].value); handRank = "One Pair"; }
+    else {
+        score = highVal;
+        handRank = "High Card";
+    }
+} 
                                 </code>
                             </pre>
                             <a class="github-button" href="https://github.com/jjgrayg/CommandLinePoker" target="_blank"><p>GitHub Link</p></a>
@@ -305,58 +326,58 @@
                                 bytes transferred.</p>
                             <pre>
                                 <code>
-        if (vec.size() == 10)
-        {
-            bool noEmpties = true;
-            for (size_t i = 0; i < vec.size(); i++)
-            {
-                if (vec[i] == '\0' || vec[i] == ' ') noEmpties = false;
-            }
-            if (noEmpties) {
-                valid = true;
-                host = vec[0];
-                //Extract day
-                day = vec[3].substr(1, vec[3].findch(0, '/') - 1);
-                //Extract month
-                int offset = vec[3].findch(0, '/');
-                month = vec[3].substr(offset + 1, vec[3].findch(offset + 1, '/') - 1);
-                //Extract year
-                offset = vec[3].findch(offset + 1, '/');
-                yearStr = vec[3].substr(offset + 1, vec[3].findch(0, ':') - 1);
-                //Convert year to int
-                year = string_to_int(yearStr);
-                //Extract hour
-                offset = vec[3].findch(0, ':');
-                hourStr = vec[3].substr(offset + 1, vec[3].findch(offset + 1, ':') - 1);
-                //Convert hour to int
-                hour = string_to_int(hourStr);
-                //Extract minute
-                offset = vec[3].findch(offset + 1, ':');
-                minuteStr = vec[3].substr(offset + 1, vec[3].findch(offset + 1, ':') - 1);
-                //Convert minute to int
-                minute = string_to_int(minuteStr);
-                //Extract second
-                offset = vec[3].findch(offset + 1, ':');
-                secondStr = vec[3].substr(offset + 1, vec[3].length());
-                //Convert second to int
-                second = string_to_int(secondStr);
-                //Extract request
-                request = vec[5].substr(vec[5].findch(0, '"'), vec[5].length()) + ' ' + vec[6] + ' ' + vec[7].substr(0, vec[7].findch(0, '"'));
-                //Extract status
-                status = vec[8];
-                //Extract number_of_bytes
-                numBytesStr = vec[9];
-                if (numBytesStr == '-') numBytesStr = '0';
-                //Convert number_of_bytes to int
-                number_of_bytes = string_to_int(numBytesStr);
-                //Make assignments to date
-                date = Date(day, month, year);
-                //Make assignments to time
-                time = Time(hour, minute, second);
-            }
-        }
-        else if (vec.size() < 10) valid = false;
-        } 
+if (vec.size() == 10)
+{
+    bool noEmpties = true;
+    for (size_t i = 0; i < vec.size(); i++)
+    {
+        if (vec[i] == '\0' || vec[i] == ' ') noEmpties = false;
+    }
+    if (noEmpties) {
+        valid = true;
+        host = vec[0];
+        //Extract day
+        day = vec[3].substr(1, vec[3].findch(0, '/') - 1);
+        //Extract month
+        int offset = vec[3].findch(0, '/');
+        month = vec[3].substr(offset + 1, vec[3].findch(offset + 1, '/') - 1);
+        //Extract year
+        offset = vec[3].findch(offset + 1, '/');
+        yearStr = vec[3].substr(offset + 1, vec[3].findch(0, ':') - 1);
+        //Convert year to int
+        year = string_to_int(yearStr);
+        //Extract hour
+        offset = vec[3].findch(0, ':');
+        hourStr = vec[3].substr(offset + 1, vec[3].findch(offset + 1, ':') - 1);
+        //Convert hour to int
+        hour = string_to_int(hourStr);
+        //Extract minute
+        offset = vec[3].findch(offset + 1, ':');
+        minuteStr = vec[3].substr(offset + 1, vec[3].findch(offset + 1, ':') - 1);
+        //Convert minute to int
+        minute = string_to_int(minuteStr);
+        //Extract second
+        offset = vec[3].findch(offset + 1, ':');
+        secondStr = vec[3].substr(offset + 1, vec[3].length());
+        //Convert second to int
+        second = string_to_int(secondStr);
+        //Extract request
+        request = vec[5].substr(vec[5].findch(0, '"'), vec[5].length()) + ' ' + vec[6] + ' ' + vec[7].substr(0, vec[7].findch(0, '"'));
+        //Extract status
+        status = vec[8];
+        //Extract number_of_bytes
+        numBytesStr = vec[9];
+        if (numBytesStr == '-') numBytesStr = '0';
+        //Convert number_of_bytes to int
+        number_of_bytes = string_to_int(numBytesStr);
+        //Make assignments to date
+        date = Date(day, month, year);
+        //Make assignments to time
+        time = Time(hour, minute, second);
+    }
+}
+else if (vec.size() < 10) valid = false;
+} 
                                 </code>
                             </pre>
                             <a class="github-button" href="https://github.com/jjgrayg/Apache-Log-Parsing-Tools" target="_blank"><p>GitHub Link</p></a>
