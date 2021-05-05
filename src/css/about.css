@@ -1,6 +1,15 @@
 /* About Section */
+#main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    margin: 75px auto 0;
+    padding-bottom: 75px;
+}
+
 .about {
-    margin: 100px 400px 0 400px;
     padding-bottom: 5px;
     display: flex;
 }
@@ -13,7 +22,6 @@
 }
 
 .description-2 {
-    margin: 0 400px 0 400px;
     padding-bottom: 100px;
 }
 

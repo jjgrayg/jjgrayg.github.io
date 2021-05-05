@@ -17,13 +17,15 @@ window.onload = function() {
     activeItem = document.getElementById("1");
 
     accordianItems.forEach( function(item) {
-        item.addEventListener('click', function() {
+        //Get the anchor tag
+        var anchor = Array.from(item.getElementsByTagName("a"))
+        anchor[0].addEventListener('click', function() {
             
-            if (!this.classList.contains('currently-viewed')) {
+            if (!item.classList.contains('currently-viewed')) {
                 //Open accordian entry for clicked item
-                this.classList.remove('accordian-item');
-                this.classList.add('currently-viewed');
-                var text = this.getElementsByClassName('not-viewed')
+                item.classList.remove('accordian-item');
+                item.classList.add('currently-viewed');
+                var text = item.getElementsByClassName('not-viewed')
                 text[0].classList.remove('not-viewed');
 
                 //Hide the actively viewed
@@ -35,11 +37,11 @@ window.onload = function() {
                 }
 
                 //Change actively viewed
-                activeItem = this;
+                activeItem = item;
             } else {
-                this.classList.remove('currently-viewed');
-                this.classList.add('accordian-item');
-                var text = this.getElementsByClassName('text');
+                item.classList.remove('currently-viewed');
+                item.classList.add('accordian-item');
+                var text = item.getElementsByClassName('text');
                 text[0].classList.add('not-viewed');
                 activeItem = undefined;
             }
