@@ -174,3 +174,17 @@ pre code {
         max-width: 70vw;
     }
 }
+
+@media (pointer: coarse) {
+    #accordian {
+        width: 90vw;
+    }
+
+    .accordian-item svg {
+        margin-top: -2px;
+    }
+
+    pre code {
+        max-width: 70vw;
+    }
+}

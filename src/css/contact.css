@@ -95,3 +95,29 @@
     }
 
 }
+
+@media (pointer: coarse) {
+    .email-info {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 0px;
+    }
+
+    .email {
+        text-align: center;
+    }
+
+    .socials {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #social-icons {
+        margin-right: 0;
+    }
+
+    .pad-left {
+        padding-left: 0;
+    }
+
+}

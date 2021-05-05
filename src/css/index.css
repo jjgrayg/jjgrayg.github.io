@@ -155,3 +155,10 @@ img {
         margin-bottom: 25px;
     }
 }
+
+@media (pointer: coarse) {
+    .orange-box {
+        margin-top: 0px;
+        margin-bottom: 25px;
+    }
+}
