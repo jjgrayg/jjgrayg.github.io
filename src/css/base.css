@@ -161,19 +161,29 @@ hr {
     background-color: rgb(128,128,128);
 }
 
-/* NavBar */
+/* Mobile Navmenu */
 nav {
     background-color: white;
-    margin: 0;
     overflow: hidden;
+    margin-top: 0;
+    margin-bottom: -18px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
+    padding-bottom: 0;
     margin: 0;
-    padding: 0;
     display: flex;
-    padding-right: 5em;
-    padding-left: 5em;
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
 }
 
 nav ul li {
@@ -184,17 +194,13 @@ nav ul li {
 
 nav ul li a {
     color: black;
-    display: block;
+    display: none;
     line-height: 3em;
-    padding: 1em 2em;
     text-decoration: none;
 }
 
-nav ul li:first-child {
-    margin-right: auto;
-}
-
 nav ul li a.logo {
+    display: block;
     max-width: 1rem;
     max-height: 1rem;
 }
@@ -203,209 +209,57 @@ nav ul li a:hover {
     color: rgb(0, 3, 189);
 }
 
-.icon {
-    display: none;
+#burger-menu {
+    display: inline-block;
+    margin: auto;
+    fill: black;
+}
+
+svg {
+    margin-top: 10px;
+}
+
+svg:hover {
+    fill: rgb(70, 70, 70);
 }
 
 #link-menu {
     display: none;
+    flex-direction: column;
 }
 
-/* Mobile Navmenu */
-@media only screen and (max-width: 700px) {
-    nav {
-        background-color: white;
-        overflow: hidden;
-        margin-top: 0;
-        margin-bottom: -18px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    nav ul {
-        padding-bottom: 0;
-        margin: 0;
-        display: flex;
-        padding-left: 0;
-        padding-right: 0;
-        justify-content: space-between;
-        text-align: center;
-    }
-    
-    nav ul li {
-        display: inline-block;
-        list-style-type: none;
-        font-family: 'Open Sans', sans-serif;
-    }
-    
-    nav ul li a {
-        color: black;
-        display: none;
-        line-height: 3em;
-        text-decoration: none;
-    }
-    
-    nav ul li a.logo {
-        display: block;
-        max-width: 1rem;
-        max-height: 1rem;
-    }
-    
-    nav ul li a:hover {
-        color: rgb(0, 3, 189);
-    }
-
-    #burger-menu {
-        display: inline-block;
-        align-self: center;
-        margin: auto;
-        fill: black;
-    }
-
-    svg {
-        margin-top: 10px;
-    }
-
-    svg:hover {
-        fill: rgb(70, 70, 70);
-    }
-
-    #link-menu {
-        display: none;
-        flex-direction: column;
-    }
-
-    #link-menu a {
-        color: white;
-        display: flex;
-        flex-direction: column;
-        font-family: "Open Sans", sans-serif;
-        background-color: rgba(7, 7, 7, 0.87);
-        padding: 20px 20px 15px;
-        margin-top: 15px;
-    }
-
-    #link-menu a.active {
-        color: rgb(153, 153, 153);
-    }
-
-    .overlay {
-        position: fixed;
-        width: 88%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgb(0, 0, 0);
-        z-index: 2;
-        cursor: pointer;
-    }
-
-    .overlay-bg {
-        margin-top: 75px;
-        opacity: .25;
-        align-self: center;
-    }
-
+#link-menu a {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: "Open Sans", sans-serif;
+    background-color: rgba(7, 7, 7, 0.87);
+    padding: 20px 20px 15px;
+    margin-top: 30px;
+    font-size: 3rem;
 }
 
-@media (pointer: coarse) {
-    nav {
-        background-color: white;
-        overflow: hidden;
-        margin-top: 0;
-        margin-bottom: -18px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    nav ul {
-        padding-bottom: 0;
-        margin: 0;
-        display: flex;
-        padding-left: 0;
-        padding-right: 0;
-        justify-content: space-between;
-        text-align: center;
-    }
-    
-    nav ul li {
-        display: inline-block;
-        list-style-type: none;
-        font-family: 'Open Sans', sans-serif;
-    }
-    
-    nav ul li a {
-        color: black;
-        display: none;
-        line-height: 3em;
-        text-decoration: none;
-    }
-    
-    nav ul li a.logo {
-        display: block;
-        max-width: 1rem;
-        max-height: 1rem;
-    }
-    
-    nav ul li a:hover {
-        color: rgb(0, 3, 189);
-    }
+#link-menu a.active {
+    color: rgb(153, 153, 153);
+}
 
-    #burger-menu {
-        display: inline-block;
-        align-self: center;
-        margin: auto;
-        fill: black;
-    }
+.overlay {
+    position: fixed;
+    width: 88%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    cursor: pointer;
+}
 
-    svg {
-        margin-top: 10px;
-    }
-
-    svg:hover {
-        fill: rgb(70, 70, 70);
-    }
-
-    #link-menu {
-        display: none;
-        flex-direction: column;
-    }
-
-    #link-menu a {
-        color: white;
-        display: flex;
-        flex-direction: column;
-        font-family: "Open Sans", sans-serif;
-        background-color: rgba(7, 7, 7, 0.87);
-        padding: 20px 20px 15px;
-        margin-top: 15px;
-    }
-
-    #link-menu a.active {
-        color: rgb(153, 153, 153);
-    }
-
-    .overlay {
-        position: fixed;
-        width: 88%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgb(0, 0, 0);
-        z-index: 2;
-        cursor: pointer;
-    }
-
-    .overlay-bg {
-        margin-top: 75px;
-        opacity: .25;
-        align-self: center;
-    }
-
+.overlay-bg {
+    margin-top: 75px;
+    opacity: .25;
+    align-self: center;
 }
 
 /* Banner */
@@ -422,7 +276,7 @@ nav ul li a:hover {
 }
 
 img {
-   object-fit: scale-down;
+object-fit: scale-down;
 }
 
 #banner * {
@@ -430,7 +284,7 @@ img {
 }
 
 #banner h1 {
-    font-size: 4rem;
+    font-size: 7rem;
     color: white;
     font-family: Roboto, monospace, sans-serif;
     font-weight: 400;
@@ -451,3 +305,106 @@ footer {
     margin-bottom: 0;
     line-height: 2rem;
 }
+
+@media only screen and (min-width: 64em) {
+    /* NavBar */
+    nav {
+        background-color: white;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        padding-right: 5em;
+        padding-left: 5em;
+    }
+
+    nav ul li {
+        display: inline-block;
+        list-style-type: none;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    nav ul li a {
+        color: black;
+        display: block;
+        line-height: 3em;
+        padding: 1em 2em;
+        text-decoration: none;
+    }
+
+    nav ul li:first-child {
+        margin-right: auto;
+    }
+
+    nav ul li a.logo {
+        max-width: 1rem;
+        max-height: 1rem;
+    }
+
+    nav ul li a:hover {
+        color: rgb(0, 3, 189);
+    }
+
+    #burger-menu {
+        display: none;
+    }
+
+    #link-menu {
+        display: none;
+    }
+
+    #link-menu a {
+        font-size: 1rem;
+    }
+
+    /* Banner */
+    #banner {
+        height: auto;
+        background: black;
+        overflow: hidden;
+        background: #C33764;
+        background: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg"), center, center, no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg"), center, center, no-repeat;
+        background-size: 100vw;
+        position: relative;
+        text-align: center;
+    }
+
+    img {
+        object-fit: scale-down;
+    }
+
+    #banner * {
+        position: relative;
+    }
+
+    #banner h1 {
+        font-size: 4rem;
+        color: white;
+        font-family: Roboto, monospace, sans-serif;
+        font-weight: 400;
+        line-height: 4rem;
+    }
+
+    #banner-text {
+        opacity: 0;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #333333;
+        text-align: center;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-size: x-small;
+        margin-bottom: 0;
+        line-height: 2rem;
+    }
+}
+
+
+

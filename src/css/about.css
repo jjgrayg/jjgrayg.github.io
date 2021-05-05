@@ -7,11 +7,15 @@
     width: 70vw;
     margin: 75px auto 0;
     padding-bottom: 75px;
+    font-size: 2rem;
 }
 
 .about {
     padding-bottom: 5px;
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
 .description p {
@@ -36,7 +40,7 @@
     position: relative;
     box-shadow: 0 2px 8px 0 rgba(128,128,128,1);
     border-radius: 10px;
-    margin-left: 50px;
+    margin-bottom: 50px;
 }
 
 .grey-box {
@@ -52,7 +56,7 @@
     margin: 0;
     font-family: 'Ubunutu mono', monospace, sans-serif;
     font-weight: 400;
-    font-size: 2.25rem;
+    font-size: 3rem;
     text-align: center;
     padding-left: 8px;
     padding-right: 8px;
@@ -61,24 +65,21 @@
     color: rgb(77, 77, 77);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (min-width: 64rem) {
+    #main-text {
+        font-size: 1rem;
+    }
+
+    .grey-box p {
+        font-size: 2.25rem;
+    }
+
     .about {
-        flex-direction: column-reverse;
+        flex-direction: row;
     }
 
     .about img {
-        margin-bottom: 25px;
-        margin-left: 0;
-    }
-}
-
-@media (pointer: coarse) {
-    .about {
-        flex-direction: column-reverse;
-    }
-
-    .about img {
-        margin-bottom: 25px;
-        margin-left: 0;
+        margin-bottom: 0;
+        margin-left: 50px;
     }
 }

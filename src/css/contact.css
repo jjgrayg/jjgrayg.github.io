@@ -7,6 +7,7 @@
     color: white;
     font-family: "Open Sans", sans-serif;
     font-size: larger;
+    font-size: 2rem;
 }
 
 .email {
@@ -24,7 +25,10 @@
     margin: 0 auto;
     padding-bottom: 50px;
     padding-top: 50px;
-    gap: 125px;
+    /*gap: 125px;*/
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0px;
 }
 
 .email-icon {
@@ -37,18 +41,20 @@
     display: flex;
     width: 70vw;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 0 auto;
     gap: 12vw;
     padding-bottom: 50px;
     padding-top: 50px;
+    flex-direction: column;
 }
 
 #social-icons {
     display: inline-flex;
-    width: 225px;
-    gap: 10px;
+    width: atuo;
+    gap: 20px;
     margin-right: 150px;
+    margin-right: 0;
 }
 
 #social-icons .icon {
@@ -56,7 +62,7 @@
 }
 
 .pad-left {
-    padding-left: 75px;
+    padding-left: 0;
 }
 
 .icon {
@@ -70,37 +76,20 @@
     padding-top: 75px;
 }
 
-@media only screen and (max-width: 700px) {
-    .email-info {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 0px;
-    }
-
-    .email {
-        text-align: center;
-    }
-
-    .socials {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #social-icons {
-        margin-right: 0;
-    }
-
-    .pad-left {
-        padding-left: 0;
-    }
-
+svg.img {
+    width: 100px;
+    height: auto;
 }
 
-@media (pointer: coarse) {
+@media only screen and (min-width: 64rem) {
+    .info {
+        font-size: 1rem;
+    }
+
     .email-info {
-        flex-direction: column-reverse;
+        flex-direction: row;
         align-items: center;
-        gap: 0px;
+        gap: 100px;
     }
 
     .email {
@@ -108,16 +97,21 @@
     }
 
     .socials {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
     #social-icons {
-        margin-right: 0;
+        margin-right: 150px;
     }
 
     .pad-left {
-        padding-left: 0;
+        padding-left: 75px;
+    }
+
+    svg.img {
+        width: 50px;
+        height: auto;
     }
 
 }
