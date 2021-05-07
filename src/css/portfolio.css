@@ -137,6 +137,12 @@ pre code {
     padding-right: 25px;
 }
 
+#root {
+    width: 85vw;
+    align-self: center;
+    margin: 0 auto;
+}
+
 /*GitHub Button*/
 .github-button {
     display: inline-block;
@@ -189,6 +195,12 @@ pre code {
 
     .github-button {
         font-size: 1rem;
-        width: 105px;
+        width: 125px;
+    }
+
+    #root {
+        width: 45vw;
+        align-self: center;
+        margin: 0 auto;
     }
 }
