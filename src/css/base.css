@@ -205,6 +205,11 @@ nav ul li a.logo {
     max-height: 1rem;
 }
 
+nav ul li a.logo img {
+    width: 5rem;
+    height: 5rem;
+}
+
 nav ul li a:hover {
     color: rgb(0, 3, 189);
 }
@@ -216,7 +221,7 @@ nav ul li a:hover {
 }
 
 svg {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 svg:hover {
@@ -347,6 +352,12 @@ footer p {
     nav ul li a.logo {
         max-width: 1rem;
         max-height: 1rem;
+    }
+
+    nav ul li a.logo img {
+        margin-top: -10px;
+        width: 4rem;
+        height: 4rem;
     }
 
     nav ul li a:hover {
