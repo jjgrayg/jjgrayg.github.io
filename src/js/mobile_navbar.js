@@ -3,7 +3,6 @@ function openMenu() {
     if (linkMenu.style.display !== "flex") {
         linkMenu.style.display = "flex";
     } else {
-        console.log("yeet")
         linkMenu.style.display = "none";
     }
 }
