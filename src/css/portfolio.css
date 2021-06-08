@@ -92,6 +92,7 @@
 .currently-viewed svg {
     padding-right: 25px;
     fill: rgb(86, 91, 97);
+    box-sizing: content-box !important;
 }
 
 .currently-viewed .accordian-link-text {
