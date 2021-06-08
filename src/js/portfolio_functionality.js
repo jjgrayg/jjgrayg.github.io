@@ -23,7 +23,6 @@ window.onload = function() {
             
             if (!item.classList.contains('currently-viewed')) {
                 //Open accordian entry for clicked item
-                item.classList.remove('accordian-item');
                 item.classList.add('currently-viewed');
                 var text = item.getElementsByClassName('not-viewed')
                 text[0].classList.remove('not-viewed');
@@ -31,7 +30,6 @@ window.onload = function() {
                 //Hide the actively viewed
                 if (activeItem != undefined) {
                     activeItem.classList.remove('currently-viewed');
-                    activeItem.classList.add('accordian-item');
                     var activeText = activeItem.getElementsByClassName('text');
                     activeText[0].classList.add('not-viewed');
                 }
@@ -40,7 +38,6 @@ window.onload = function() {
                 activeItem = item;
             } else {
                 item.classList.remove('currently-viewed');
-                item.classList.add('accordian-item');
                 var text = item.getElementsByClassName('text');
                 text[0].classList.add('not-viewed');
                 activeItem = undefined;
