@@ -60,6 +60,7 @@
     padding-right: 25px;
     fill: rgb(133, 142, 153);
     margin-top: -2px;
+    box-sizing: content-box !important;
 }
 
 .accordian-link-text {
