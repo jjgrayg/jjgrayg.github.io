@@ -5,7 +5,7 @@ window.onload = function() {
     clearInterval(id);
     id = setInterval(frame, 5);
     function frame() {
-        if (opacity == 1) {
+        if (opacity >= 1) {
         clearInterval(id);
         } else {
         opacity += .01;
