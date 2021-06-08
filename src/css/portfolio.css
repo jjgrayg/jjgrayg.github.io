@@ -4,11 +4,11 @@
     font-family: "Open Sans", sans-serif;
     color: white;
     padding: 25px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .header h1 {
-    font-size: 3em;
+    font-size: 3rem;
     line-height: .75em;
 }
 
@@ -67,7 +67,7 @@
     font-family: "Open Sans", sans-serif;
     color: rgb(133, 142, 153);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 /*Define style for currently viewed*/
@@ -105,7 +105,7 @@
     padding-top: 50px;
     padding-right: 45px;
     padding-bottom: 35px;
-    font-size: 2rem;
+    font-size: 1.25rem;
 }
 
 .excerpt {
@@ -129,7 +129,7 @@ pre code {
     overflow-y: hidden;
     display: block;
     line-height: 1.6em;
-    font-size: 22px;
+    font-size: 15px;
     white-space: pre; 
     word-wrap: normal;
     max-width: 70vw;
@@ -160,7 +160,7 @@ pre code {
     padding-bottom: .01px;
     width: 210px;
     border-radius: 15px;
-    font-size: 2rem;
+    font-size: 1.25rem;
 }
 
 @media only screen and (min-width: 64rem) {

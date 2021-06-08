@@ -7,8 +7,10 @@
         <link href="src/css/base.css" type="text/css" rel="stylesheet">
         <link href="src/css/index.css" type="text/css" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico">
+        <script src="src/js/portfolio_functionality.js"></script>
         <script src="src/js/index.js"></script>
         <script src="src/js/mobile_navbar.js" defer></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <!-- Displayed Portion -->
@@ -17,7 +19,7 @@
         <!-- Top Navbar -->
         <nav>
             <ul>
-                <li><a href="./index.html" class="logo"><img src="src/img/logo.png" width="50rem" height="50rem"></a>
+                <li><a href="./index.html" class="logo"><img src="src/img/logo.png" width="30rem" height="30rem"></a>
                 </li>
 
                 <!-- REGULAR LINKS -->
@@ -30,7 +32,7 @@
                 <li><a href="./about.html">About</a>
                 </li>
                 <li><a href="javascript:void(0);" class="icon" id="burger-menu" onclick="openMenu()">
-                    <svg viewBox="0 0 100 100" width="60" height="60" preserveAspectRatio="xMaxYMax meet">
+                    <svg viewBox="0 0 100 100" width="30" height="30" preserveAspectRatio="xMaxYMax meet">
                         <rect width="100" height="20" rx="5"></rect>
                         <rect y="30" width="100" height="20" rx="5"></rect>
                         <rect y="60" width="100" height="20" rx="5"></rect>
@@ -39,12 +41,12 @@
             </ul>
                 
             <!-- MOBILE LINKS -->
-            <div id="link-menu" class="overlay">
+            <div id="link-menu" class="overlay" style="margin-left: -700px;">
                 <a href="./index.html" class="active">Home</a>
                 <a href="./contact.html">Contact</a>
                 <a href="./portfolio.html">Portfolio</a>
                 <a href="./about.html">About</a>
-                <img src="src/img/logo.png" width="500rem" height="500rem" class="overlay-bg">
+                <img src="src/img/logo.png" width="250rem" height="250rem" class="overlay-bg">
             </div>
         </nav>
 
@@ -63,30 +65,43 @@
             <div id="source-tutorial">
                 <div id="description">
                     <h1>Source Code</h1>
-                    <p>If you're interested in poking around the source code of this site, and are on a windows
-                        machine, then simply follow the instructions below.
+                    <p>If you're interested in poking around the source code of this site, simply select the type of device
+                        you are currently on and follow the steps indicated.
                     </p>
+                    <br>
+                    <hr>
                 </div>
-                <div id="source">
-                    <div class="flex-display left keep-near">
-                        <div id="right-click" class="orange-box">
-                            <p>Begin by right-clicking anywhere on the page and you'll see a menu like the one shown here.</p>
-                        </div>
-                        <div id="right-click-img" class="grey-box small">
-                            <img src="src/img/right-click-menu.png"/>
+            </div>
+            <div id="accordian">
+                <div id="1" class="accordian-item currently-viewed">
+                    <a><div class="horizontal-flex">
+                        <span class="accordian-link-text">Mobile/Tablet</span>
+                            <svg viewBox="0 0 42 42" width="30px" height="30px">
+                                <polygon points="42,20 22,20 22,0 20,0 20,20 0,20 0,22 20,22 20,42 22,42 22,22 42,22 "></polygon>
+                            </svg>
+                        </div></a>
+                    <div class="vertical-flex">
+                        <div id="1-text" class="text">
+                            <p class="description">Click on the url at the top of your screen and add "view-source:" without the before the "https://" as
+                                seen in the image below.</p>
+                            <img src="src/img/SmartSelect_20210607-235610_Chrome.jpg"/>
                         </div>
                     </div>
-                    <div class="flex-display right keep-near-2">
-                        <div id="source-page" class="orange-box center">
-                            <p>Simply click on the button that says "view page source" and you'll be brought to the 
+                </div>
+                <div id="2" class="accordian-item">
+                    <a><div class="horizontal-flex">
+                        <span class="accordian-link-text">PC/Mac</span>
+                            <svg viewBox="0 0 42 42" width="30px" height="30px">
+                                <polygon points="42,20 22,20 22,0 20,0 20,20 0,20 0,22 20,22 20,42 22,42 22,22 42,22 "></polygon>
+                            </svg>
+                        </div></a>
+                    <div class="vertical-flex">
+                        <div id="1-text" class="not-viewed text">
+                            <p class="description">Begin by right-clicking anywhere on the page and you'll see a menu like the one shown here.</p>
+                            <img src="src/img/right-click-menu.png"/>
+                            <p class="description">Simply click on the button that says "view page source" and you'll be brought to the 
                                 source code page.</p>
-                        </div>
-                        <div id="source-page-img" class="grey-box large">
-                            <img src="src/img/example-source.png"
-                                width="416"
-                                height="400"/>
-                            <p>Your view may be different depending on the browser you are using, but congratulations!
-                                You can now take a look at all the interesting elements used to build this website!</p>
+                            <img src="src/img/example-source.png"/>
                         </div>
                     </div>
                 </div>

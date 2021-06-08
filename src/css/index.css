@@ -6,7 +6,7 @@
     background: #C33764;
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg"), center, center, no-repeat;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg"), center, center, no-repeat;
-    background-size: 100vw;
+    background-size: cover;
     position: relative;
     text-align: center;
     padding: 0 25%;
@@ -21,11 +21,11 @@ img {
 }
 
 #banner h1 {
-    font-size: 7rem;
+    font-size: 4rem;
     color: white;
     font-family: Roboto, monospace, sans-serif;
     font-weight: 400;
-    line-height: 2rem;
+    line-height: .25rem;
 }
 
 #banner p {
@@ -35,7 +35,7 @@ img {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 #banner-text {
@@ -52,7 +52,7 @@ img {
     padding: 10px 30px;
     font-family: 'Open Sans', sans-serif;
     font-size: large;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 /* Source Tutorial */
@@ -65,101 +65,124 @@ img {
 }
 
 #description h1 {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #description p {
     text-align: center;
     margin: 10px auto 0;
     width: 70vw;
+    font-size: 1rem;
+}
+
+/*Accordian*/
+#accordian {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    width: 90vw;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 150px;
+}
+
+.accordian-item {
+    background-color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.accordian-item:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.not-viewed {
+    display: none;
+}
+
+.horizontal-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vertical-flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.accordian-item svg {
+    padding-right: 25px;
+    fill: rgb(133, 142, 153);
+    margin-top: -2px;
+}
+
+.accordian-link-text {
+    padding-left: 25px;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(133, 142, 153);
+    font-weight: 700;
     font-size: 2rem;
 }
 
-.orange-box {
-    background-color: rgb(244,108,0);
-    border-radius: 10px;
-    width: 476px;
-    min-height: 73px;
-    margin: 104px auto 0;
-    position: relative;
-    align-self: flex-start;
-    margin-top: 0px;
-    margin-bottom: 25px;
-}
-
-.orange-box p {
-    padding-left: 30px;
-    padding-right: 30px;
-    position: relative;
-    flex: 1;
-    font-size: 1.5rem;
-}
-
-.grey-box {
-    margin: auto auto 0px auto;
-    background-color: rgb(85,92,102);
-    border-radius: 41px;
-    padding: 30px 20px;
-    position: relative;
-    box-sizing: border-box;
-    flex-grow: 0;
-    flex: 0 0 auto;
-}
-
-.small {
-    width: 298px;
-    min-height: 328px;
-}
-
-.large {
-    width: 456px;
-    min-height: 328px;
-}
-
-.large p {
-    height: 30px;
-}
-
-.center {
-    align-self: center;
-}
-
-.left {
-    flex-direction: row-reverse;
-}
-
-.right {
-    flex-direction: row;
-}
-
-.grey-box img {
-    border-radius: 19px;
-}
-
-.grey-box p {
-    font-size: small;
-}
-
-.flex-display {
+/*Define style for currently viewed*/
+.currently-viewed {
+    background-color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.currently-viewed:hover {
+    background-color: white;
+}
+
+.currently-viewed svg {
+    padding-right: 25px;
+    fill: rgb(86, 91, 97);
+}
+
+.currently-viewed .accordian-link-text {
+    color: rgb(86, 91, 97);
+}
+
+/*Inner Accordian Text*/
+.description {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    padding-left: 45px;
+    padding-top: 50px;
+    padding-right: 45px;
+    padding-bottom: 35px;
+    font-size: 1.25rem;
+}
+
+.text img {
+    max-width: 90%;
+    min-height: 10%;
+    margin-left: 5%;
+    border: 1px solid;
+    border-radius: 20px;
+}
+
+.vertical-flex {
+    display: flex;
     align-items: center;
-    align-content: center;
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
-.keep-near {
-    margin-left: 15vw;
-    margin-right: 15vw;
-}
-
-.keep-near-2 {
-    margin-left: 15vw;
-    margin-right: 17vw;
+    flex-direction: column;
 }
 
 @media only screen and (min-width: 64em) {
@@ -170,6 +193,10 @@ img {
 
     #banner p {
         font-size: 1rem;
+        width: 50vw;
+    }
+
+    #accordian {
         width: 50vw;
     }
 
