@@ -68,13 +68,118 @@
             <div id="accordian">
                 <div id="1" class="accordian-item currently-viewed">
                     <a><div class="horizontal-flex">
-                        <span class="accordian-link-text">Document Editor</span>
+                        <span class="accordian-link-text">Profiler</span>
                         <svg viewBox="0 0 42 42" width="30px" height="30px">
                             <polygon points="42,20 22,20 22,0 20,0 20,20 0,20 0,22 20,22 20,42 22,42 22,22 42,22 "></polygon>
                         </svg>
                     </div></a>
                     <div class="vertical-flex">
                         <div id="1-text" class="text">
+                            <p class="description">A program profiler written in C++ as the last project of my abstract data structures class. I cannot take credit for all the code included
+                                as some of the basic stuff was written by my professor, Dr. Jonathan I. Maletic, but I did write the algorithms for searching and inserting the necessary lines
+                                of code to profile a C++ program.
+                            </p>
+                            <div class="code-block">
+                                <pre>
+                                    <code>
+/////////////////////////////////////////////////////////////////////
+// Searches an AST and returns a vector of list iterators pointing
+// to the AST children that have a tag matching that specified
+// REQUIRES: A vector of list iterators
+//
+std::vector<std::list<AST*>::iterator>& AST::deepScan(std::string searchTag, std::vector<std::list<AST*>::iterator>& vecToPopulate) {
+    std::list<AST*>::iterator ptr = child.begin();
+    if (isStopTag(tag)){
+        return vecToPopulate;
+    }
+    while (ptr != child.end()) {
+        (*ptr)->deepScan(searchTag, vecToPopulate);
+        if ((*ptr)->tag == searchTag) {
+            vecToPopulate.push_back(ptr);
+        }
+        ++ptr;
+    }
+    return vecToPopulate;
+}
+
+/////////////////////////////////////////////////////////////////////
+//  Adds in the includes and profile variables in a main file.
+//
+void AST::mainHeader(const std::vector<std::string>& profileName) {
+
+    std::list<AST*>::iterator ptr = child.begin();
+    while (ptr != child.end()) {
+        if ((*ptr)->tag == "function") {
+            break;
+        }
+        ++ptr;
+    }
+
+    /////////////////////////////////////////////////////////////////////
+    // Create include directive
+    AST* cpp_include = new AST(token, "\n\n// Include header for profiling\n#include \"profile.hpp\"\n");
+    child.insert(ptr, cpp_include);
+    /////////////////////////////////////////////////////////////////////
+    // Create profile declaration for each in profileName
+    for (unsigned long i = 0; i < profileName.size(); ++i) {
+        std::string profName = profileName[i];
+        std::string profileDec = "profile " + profName + "(\"";
+        unsigned int lastUnderscoreIndex = 0;
+        for (unsigned int j = 0; j < profName.size(); ++j) {
+            if (profName[j] == '_') lastUnderscoreIndex = j;
+        }
+        profName[lastUnderscoreIndex] = '.';
+        profileDec += profName + "\");\n";
+        if (i == profileName.size() - 1) profileDec += "\n";
+        AST* profNode = new AST(token, profileDec);
+
+        child.insert(ptr, profNode);
+    }
+
+}
+
+/////////////////////////////////////////////////////////////////////
+//  Adds in the includes and profile variables for non-main files
+//
+void AST::fileHeader(const std::string& profileName) {
+
+    std::list<AST*>::iterator ptr = child.begin();
+    while (ptr != child.end()) {
+        if ((*ptr)->tag == "function") {
+            break;
+        }
+        ++ptr;
+    }
+
+    /////////////////////////////////////////////////////////////////////
+    // Create include directive
+    AST* cpp_include = new AST(token, "\n\n// Include header for profiling\n#include \"profile.hpp\"\n");
+    child.insert(ptr, cpp_include);
+    /////////////////////////////////////////////////////////////////////
+    // Create profile declaration for each in profileName
+    std::string profName = profileName;
+    std::string profileDec = "extern profile " + profName + ";\n\n";
+    AST* profNode = new AST(token, profileDec);
+
+    child.insert(ptr, profNode);
+
+}
+                                    </code>
+                                </pre>
+                            </div>
+                            <a class="github-button" href="https://github.com/jjgrayg/Online_Doc_Editor" target="_blank"><p>GitHub Link</p></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="2" class="accordian-item">
+                    <a><div class="horizontal-flex">
+                        <span class="accordian-link-text">Document Editor</span>
+                        <svg viewBox="0 0 42 42" width="30px" height="30px">
+                            <polygon points="42,20 22,20 22,0 20,0 20,20 0,20 0,22 20,22 20,42 22,42 22,22 42,22 "></polygon>
+                        </svg>
+                    </div></a>
+                    <div class="vertical-flex">
+                        <div id="2-text" class="not-viewed text">
                             <p class="description">The first true JavaScript app I ever wrote. Needs some work,
                                 and I intend to perfect it, but for now serves as a basic document editor that
                                 utilizes Node.js, React.js, and Quill to work.</p>
@@ -119,7 +224,7 @@ export default function TextEditor() {
                         </div>
                     </div>
                 </div>
-                <div id="2" class="accordian-item">
+                <div id="3" class="accordian-item">
                     <a><div class="horizontal-flex">
                         <span class="accordian-link-text">Space Game</span>
                         <svg viewBox="0 0 42 42" width="30px" height="30px">
@@ -127,7 +232,7 @@ export default function TextEditor() {
                         </svg>   
                     </div></a>
                     <div class="vertical-flex">
-                        <div id="2-text" class="not-viewed text">
+                        <div id="3-text" class="not-viewed text">
                             <p class="description">As you can probably tell, I'm not great at coming up with titles, but this 
                                 is a simple space-themed game made using the Pygame library in Python.</p>
                             <pre>
@@ -226,7 +331,7 @@ def main():
                         </div>
                     </div>
                 </div>
-                <div id="3" class="accordian-item">
+                <div id="4" class="accordian-item">
                     <a><div class="horizontal-flex">
                         <span class="accordian-link-text">Command-Line Poker</span>
                         <svg viewBox="0 0 42 42" width="30px" height="30px">
@@ -234,7 +339,7 @@ def main():
                         </svg>   
                     </div></a>
                     <div class="vertical-flex">
-                        <div id="3-text" class="not-viewed text">
+                        <div id="4-text" class="not-viewed text">
                             <p class="description">A personal project of mine to test my understanding of C++, specifically with 
                                 objects, inheritance, and data types, this is a mostly-finished program that displays your cards 
                                 and allows you to bet against a bot in a game of poker.</p>
@@ -321,7 +426,7 @@ void player::evaluate() {
                         </div>
                     </div>
                 </div>
-                <div id="4" class="accordian-item">
+                <div id="5" class="accordian-item">
                     <a><div class="horizontal-flex">
                         <span class="accordian-link-text">Apache Log Parser</span>
                         <svg viewBox="0 0 42 42" width="30px" height="30px">
@@ -329,7 +434,7 @@ void player::evaluate() {
                         </svg>   
                     </div></a>
                     <div class="vertical-flex">
-                        <div id="4-text" class="not-viewed text">
+                        <div id="5-text" class="not-viewed text">
                             <p class="description">A class project where we create and utilize a custom string class in order to 
                                 parse apache logs and format the data as well as extract data such as a list of all hosts and total 
                                 bytes transferred.</p>
@@ -393,7 +498,7 @@ else if (vec.size() < 10) valid = false;
                         </div>
                     </div>
                 </div>
-                <div id="5" class="accordian-item">
+                <div id="6" class="accordian-item">
                     <a><div class="horizontal-flex">
                         <span class="accordian-link-text">Links To The Rest</span>
                         <svg viewBox="0 0 42 42" width="30px" height="30px">
@@ -401,7 +506,7 @@ else if (vec.size() < 10) valid = false;
                         </svg>   
                     </div></a>
                     <div class="vertical-flex">
-                        <div id="5-text" class="not-viewed text">
+                        <div id="6-text" class="not-viewed text">
                             <p class="description">Since this webpage would quickly become a bit unwieldy if I were to include 
                                 samples from each of my projects here are the links to the ones I didn't include here</p>
                             <p class="title">Carbon Map</p>
